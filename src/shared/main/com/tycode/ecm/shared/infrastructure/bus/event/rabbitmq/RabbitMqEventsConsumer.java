@@ -3,6 +3,7 @@ package com.tycode.ecm.shared.infrastructure.bus.event.rabbitmq;
 import com.tycode.ecm.shared.domain.Service;
 import com.tycode.ecm.shared.domain.Utils;
 import com.tycode.ecm.shared.domain.bus.event.Event;
+import com.tycode.ecm.shared.domain.bus.event.NotRegisteredSubscriberException;
 import com.tycode.ecm.shared.infrastructure.bus.EventJsonDeserializer;
 import com.tycode.ecm.shared.infrastructure.bus.EventSubscribersInformation;
 import org.springframework.amqp.core.Message;
@@ -118,7 +119,7 @@ public final class RabbitMqEventsConsumer {
         return (int) message.getMessageProperties().getHeaders().getOrDefault("redelivery_count", 0) >= MAX_RETRIES;
     }
 
-    private Object subscriberFor(String queue) throws Exception {
+    private Object subscriberFor(String queue) throws NotRegisteredSubscriberException{
         String[] queueParts     = queue.split("\\.");
         String   subscriberName = Utils.toCamelFirstLower(queueParts[queueParts.length - 1]);
 
@@ -128,7 +129,7 @@ public final class RabbitMqEventsConsumer {
 
             return subscriber;
         } catch (Exception e) {
-            throw new Exception(String.format("There are not registered subscribers for <%s> queue", queue));
+            throw new NotRegisteredSubscriberException(String.format("There are not registered subscribers for %s queue", queue));
         }
     }
 }

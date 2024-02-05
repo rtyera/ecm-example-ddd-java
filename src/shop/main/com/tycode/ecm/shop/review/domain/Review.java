@@ -5,7 +5,7 @@ import com.tycode.ecm.shop.product.domain.ProductId;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
-import java.util.Date;
+import java.util.Objects;
 
 public class Review extends AggregateRoot {
 
@@ -77,6 +77,27 @@ public class Review extends AggregateRoot {
                         this.getMessage()
                 )
         );
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Review review = (Review) o;
+        return  id.equals(review.id)
+                && productId.equals(review.productId)
+                && (deliver == review.deliver)
+                && (checker == review.checker) ;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, productId);
     }
 
 }

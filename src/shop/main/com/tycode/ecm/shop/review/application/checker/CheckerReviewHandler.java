@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class CommandCheckerReviewHandler implements CommandHandler<CommandCheckerReview> {
+public class CheckerReviewHandler implements CommandHandler<CommandCheckerReview> {
 
     private final CheckerReview checkerReview;
 

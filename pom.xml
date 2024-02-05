@@ -37,6 +37,16 @@
       <version>3.2.1</version>
     </dependency>
     <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.github.javafaker</groupId>
+      <artifactId>javafaker</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
       <optional>true</optional>
@@ -56,6 +66,13 @@
         <version>${project.parent.version}</version>
       </dependency>
       <dependency>
+        <groupId>com.tycode.ecm.shared</groupId>
+        <artifactId>shared</artifactId>
+        <version>1.0</version>
+        <type>test-jar</type>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
         <groupId>com.tycode.ecm.shop</groupId>
         <artifactId>shop</artifactId>
         <version>${project.parent.version}</version>
@@ -64,6 +81,11 @@
         <groupId>com.tycode.ecm.seller</groupId>
         <artifactId>seller</artifactId>
         <version>${project.parent.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.github.javafaker</groupId>
+        <artifactId>javafaker</artifactId>
+        <version>1.0.2</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

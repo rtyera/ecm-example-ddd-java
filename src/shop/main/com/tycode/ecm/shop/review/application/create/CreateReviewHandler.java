@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class CommandReviewHandler implements CommandHandler<CommandCreateReview> {
+public class CreateReviewHandler implements CommandHandler<CommandCreateReview> {
 
     private final CreateReview createReview;
 

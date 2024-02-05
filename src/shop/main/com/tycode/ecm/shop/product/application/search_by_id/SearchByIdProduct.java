@@ -14,7 +14,7 @@ public class SearchByIdProduct {
 
     public Product search(String id){
         return productRepository.findById(new ProductId(id)).orElseThrow(
-                ()-> new ProductNotExistException(String.format("The Product with id %s doesn't exist!", id))
+                ()-> new ProductNotExistException(String.format("The Product with id %s does not exist", id))
         );
     }
 }

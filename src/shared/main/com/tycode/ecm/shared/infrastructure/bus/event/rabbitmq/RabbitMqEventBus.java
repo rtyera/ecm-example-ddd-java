@@ -27,9 +27,7 @@ public class RabbitMqEventBus implements EventBus {
     private void publish(Event event) {
         try {
             this.publisher.publish(event, exchangeName);
-            System.out.println("publishing");
         } catch (AmqpException error) {
-            System.out.println(error.getMessage());
         }
     }
 }
